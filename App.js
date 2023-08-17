@@ -1,20 +1,20 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import * as React from 'react';
+import { View } from 'react-native';
+
+//Import a local component here
+import LittleLemonHeader from './components/LittleLemonHeader';
+import LittleLemonContent from './components/LittleLemonContent';
+import LittleLemonFooter from './components/LittleLemonFooter';
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Welcome to the Little Lemon App!</Text>
-      <StatusBar style="auto" />
+    return (
+    <View style={{
+      flex: 1,
+      backgroundColor: '#495E57',
+    }}>
+      <LittleLemonHeader />
+      <LittleLemonContent />
+      <LittleLemonFooter />
     </View>
-  );
+    );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
