@@ -4,6 +4,7 @@ import LittleLemonHeader from './components/LittleLemonHeader';
 import LittleLemonFooter from './components/LittleLemonFooter';
 import WelcomeScreen from './WelcomeScreen';
 import MenuItems from './components/MenuItems';
+import ViewBoxesWithColorAndText from './ViewBoxesWithColorAndText';
 
 
 export default function App() {
@@ -17,8 +18,9 @@ export default function App() {
         backgroundColor: '#495E57',
       }}>
         <LittleLemonHeader />
-        {/* <WelcomeScreen /> */}
-        <MenuItems />
+        {/* <ViewBoxesWithColorAndText /> */}
+        <WelcomeScreen />
+        {/* <MenuItems /> */}
       </View>
       <View style={{ 
         backgroundColor: '#495E57' 
