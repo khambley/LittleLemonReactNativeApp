@@ -13,18 +13,13 @@ export default function App() {
     //https://legacy.reactjs.org/blog/2017/11/28/react-v16.2.0-fragment-support.html
     <>
       <View
-      style={{
-        flex: 1,
-        backgroundColor: '#495E57',
-      }}>
+      style={styles.container}>
         <LittleLemonHeader />
         {/* <ViewBoxesWithColorAndText /> */}
         <WelcomeScreen />
         {/* <MenuItems /> */}
       </View>
-      <View style={{ 
-        backgroundColor: '#495E57' 
-      }}>
+      <View style={styles.footer}>
         <LittleLemonFooter />
       </View>
 
@@ -33,3 +28,13 @@ export default function App() {
   
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#495E57',
+  },
+  footer: { 
+    backgroundColor: '#495E57' 
+  }
+});
