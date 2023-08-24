@@ -1,13 +1,10 @@
 import * as React from 'react';
-import { View, Text } from 'react-native';
+import { StyleSheet, View, Text } from 'react-native';
 
 export default function LittleLemonFooter() {
     return (
         <View
-          style={{
-            backgroundColor: '#F4CE14',
-            marginBottom: 10,
-          }}>
+          style={footerStyles.container}>
           <Text
             style={{
               fontSize: 18,
@@ -19,3 +16,9 @@ export default function LittleLemonFooter() {
         </View>
       );
 }
+const footerStyles = StyleSheet.create({
+  container: {
+    backgroundColor: '#EE9972',
+    marginBottom: 15,
+  }
+});
