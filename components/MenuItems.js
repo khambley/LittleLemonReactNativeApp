@@ -1,14 +1,33 @@
 import React from 'react';
-import { StyleSheet, Text, View, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, FlatList } from 'react-native';
+
+// const menuItemsToDisplay = [
+//   'Hummus \n Moutabal \n Falafel \n Marinated Olives \n Kofta \n Eggplant Salad \n Lentil Burger \n Smoked Salmon \n Kofta Burger \n Turkish Kebab \n Fries \n Buttered Rice \n Bread Sticks \n Pita Pocket \n Lentil Soup \n Greek Salad \n Rice Pilaf \n Baklava \n Tartufo \n Tiramisu \n Panna Cotta',
+// ];
 
 const menuItemsToDisplay = [
-  'Hummus \n Moutabal \n Falafel \n Marinated Olives \n Kofta \n Eggplant Salad \n Lentil Burger \n Smoked Salmon \n Kofta Burger \n Turkish Kebab \n Fries \n Buttered Rice \n Bread Sticks \n Pita Pocket \n Lentil Soup \n Greek Salad \n Rice Pilaf \n Baklava \n Tartufo \n Tiramisu \n Panna Cotta',
+    { name: 'Hummus', id: '1A' },
+    { name: 'Moutabal', id: '2B' },
+    { name: 'Falafel', id: '3C' },
+    { name: 'Marinated Olives', id: '4D' },
+    { name: 'Kofta', id: '5E' }
 ];
 
-const MenuItems = () => {
+const Item = ({name}) => {
     return (
         <View style={menuStyles.container}>
-            <ScrollView
+            <Text style={menuStyles.itemText}>{name}</Text>
+        </View>
+    )
+}
+
+const MenuItems = () => {
+
+    const renderItem = ({item}) => <Item name={item.name} />
+
+    return (
+        <View style={menuStyles.container}>
+            {/* <ScrollView
             indicatorStyle={"white"}
             style={menuStyles.innerContainer}>
                 <Text style={menuStyles.headerText}>
@@ -17,7 +36,9 @@ const MenuItems = () => {
                 <Text style={menuStyles.itemText}>
                 {menuItemsToDisplay[0]}
                 </Text>
-            </ScrollView>
+            </ScrollView> */}
+            <Text style={menuStyles.headerText}>View Menu</Text>
+            <FlatList data={menuItemsToDisplay} renderItem={renderItem} />
         </View>
     );
 };
