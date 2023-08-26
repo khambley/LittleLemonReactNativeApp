@@ -29,6 +29,13 @@ const menuItemsToDisplay = [
   { name: 'Panna Cotta', price: '$5.00', id: '21V' },
 
 ];
+const Separator = () => <View style={menuStyles.separator} />
+
+const Header = () => <Text style={menuStyles.headerText}>View Menu</Text>
+
+const Footer = () => (
+    <Text style={menuStyles.footerText}>All Rights Reserved by Little Lemon 2023</Text>
+)
 
 const Item = ({ name, price }) => {
     return (
@@ -56,7 +63,12 @@ const MenuItems = () => {
                 </Text>
             </ScrollView> */}
             {/* <Text style={menuStyles.headerText}>View Menu</Text> */}
-            <FlatList data={menuItemsToDisplay} renderItem={renderItem} keyExtractor={(item) => item.id} />
+            <FlatList data={menuItemsToDisplay} 
+                      renderItem={renderItem} 
+                      keyExtractor={(item) => item.id}
+                      ItemSeparatorComponent={Separator}
+                      ListHeaderComponent={Header}
+                      ListFooterComponent={Footer} />
         </View>
     );
 };
@@ -76,10 +88,15 @@ const menuStyles = StyleSheet.create({
     headerText: { 
         color: 'white', 
         fontSize: 40, 
-        flexWrap: 'wrap' 
+        flexWrap: 'wrap',
+        textAlign: 'center' 
     },
     itemText: {
         color: '#F4CE14',
         fontSize: 20, 
+    },
+    separator: {
+        borderBottomWidth: 1,
+        borderColor: '#EDEFEE'
     }
 })
