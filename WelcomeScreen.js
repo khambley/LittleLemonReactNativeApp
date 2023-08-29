@@ -31,7 +31,8 @@ export default function WelcomeScreen() {
             style={welcomeStyles.messageBox}
             value={message}
             onChangeText={onChangeMessage}
-            placeholder={'Please Leave Feedback'} />
+            placeholder={'Please Leave Feedback'}
+            multiline={true} />
         </ScrollView>
      </KeyboardAvoidingView>
     );
