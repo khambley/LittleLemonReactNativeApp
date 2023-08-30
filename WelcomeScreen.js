@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, Text, ScrollView, TextInput, KeyboardAvoidingView, Platform } from 'react-native';
+import { StyleSheet, View, Text, ScrollView, TextInput, KeyboardAvoidingView, Platform, Alert } from 'react-native';
 
 export default function WelcomeScreen() {
 
@@ -21,18 +21,24 @@ export default function WelcomeScreen() {
             style={welcomeStyles.inputBox}
             value={firstName}
             onChangeText={onChangeFirstName}
-            placeholder={'First Name'} />
+            placeholder={'First Name'}
+            // onFocus={() => Alert.alert("First name is focused")}
+            // onBlur={() => Alert.alert('First name is blurred')}
+            clearButtonMode="always" /> 
+            {/* clearButtonMode only available on iOS, need custom implementation on Android */}
         <TextInput 
             style={welcomeStyles.inputBox}
             value={lastName}
             onChangeText={onChangeLastName}
-            placeholder={'Last Name'} />
+            placeholder={'Last Name'}
+            clearButtonMode="always" />
          <TextInput 
             style={welcomeStyles.messageBox}
             value={message}
             onChangeText={onChangeMessage}
             placeholder={'Please Leave Feedback'}
-            multiline={true} />
+            multiline={false}
+            clearButtonMode='always' />
         </ScrollView>
      </KeyboardAvoidingView>
     );

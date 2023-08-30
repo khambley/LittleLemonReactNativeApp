@@ -3,6 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import LittleLemonHeader from './components/LittleLemonHeader';
 import LittleLemonFooter from './components/LittleLemonFooter';
 import WelcomeScreen from './WelcomeScreen';
+import LoginScreen from './LoginScreen';
 import MenuItems from './components/MenuItems';
 import ViewBoxesWithColorAndText from './ViewBoxesWithColorAndText';
 
@@ -18,14 +19,12 @@ export default function App() {
         {/* <ViewBoxesWithColorAndText /> */}
         <WelcomeScreen />
         {/* <MenuItems /> */}
+        {/* <LoginScreen /> */}
       </View>
       <View style={styles.footer}>
         <LittleLemonFooter />
       </View>
-
-    </>
-    
-  
+    </>  
   );
 }
 
