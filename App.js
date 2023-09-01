@@ -4,6 +4,7 @@ import LittleLemonHeader from './components/LittleLemonHeader';
 import LittleLemonFooter from './components/LittleLemonFooter';
 import WelcomeScreen from './WelcomeScreen';
 import LoginScreen from './LoginScreen';
+import MyTextComponent from './components/MyTextComponent';
 import MenuItems from './components/MenuItems';
 import ViewBoxesWithColorAndText from './ViewBoxesWithColorAndText';
 
@@ -17,9 +18,10 @@ export default function App() {
       style={styles.container}>
         <LittleLemonHeader />
         {/* <ViewBoxesWithColorAndText /> */}
-        <WelcomeScreen />
+        {/* <WelcomeScreen /> */}
         {/* <MenuItems /> */}
-        {/* <LoginScreen /> */}
+        <LoginScreen />
+        {/* <MyTextComponent /> */}
       </View>
       <View style={styles.footer}>
         <LittleLemonFooter />
@@ -31,7 +33,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'black',
+    backgroundColor: 'blackß',
   },
   footer: { 
     backgroundColor: 'black' 
