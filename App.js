@@ -19,8 +19,8 @@ export default function App() {
         <LittleLemonHeader />
         {/* <ViewBoxesWithColorAndText /> */}
         {/* <WelcomeScreen /> */}
-        {/* <MenuItems /> */}
-        <LoginScreen />
+        <MenuItems />
+        {/* <LoginScreen /> */}
         {/* <MyTextComponent /> */}
       </View>
       <View style={styles.footer}>

@@ -1,5 +1,5 @@
-import React from 'react';
-import { StyleSheet, Text, View, ScrollView, FlatList, SectionList } from 'react-native';
+import React, {useState} from 'react';
+import { StyleSheet, Text, View, ScrollView, FlatList, SectionList, Pressable } from 'react-native';
 
 // const menuItemsToDisplay = [
 //   'Hummus \n Moutabal \n Falafel \n Marinated Olives \n Kofta \n Eggplant Salad \n Lentil Burger \n Smoked Salmon \n Kofta Burger \n Turkish Kebab \n Fries \n Buttered Rice \n Bread Sticks \n Pita Pocket \n Lentil Soup \n Greek Salad \n Rice Pilaf \n Baklava \n Tartufo \n Tiramisu \n Panna Cotta',
@@ -91,6 +91,7 @@ const Item = ({ name, price }) => {
 
 const MenuItems = () => {
 
+    const [showMenu, setShowMenu] = useState(false);
     const renderItem = ({ item }) => <Item name={item.name} price={item.price} />
 
     const renderSectionHeader = ({ section: {title} }) => (
@@ -116,10 +117,23 @@ const MenuItems = () => {
                       ItemSeparatorComponent={Separator}
                       ListHeaderComponent={Header}
                       ListFooterComponent={Footer} /> */}
-            <SectionList keyExtractor={(item, index) => item + index }
-                         sections={menuItemsToDisplay}
-                         renderItem={renderItem}
-                         renderSectionHeader={renderSectionHeader} />
+            {!showMenu && (
+              <Text style={menuStyles.infoSection}>Little Lemon is a charming neighborhood bistro that serves simple food and classic cocktails in a lively but casual environment. View our menu to explore our cuisine with daily specials!</Text>
+            )}
+            <View styles={menuStyles.buttonContainer}>
+              <Pressable style={menuStyles.button} onPress={() => {
+                setShowMenu(!showMenu);
+              }}>
+                <Text style={menuStyles.buttonText}>{showMenu ? 'Home' : 'View Menu'}</Text>
+              </Pressable>
+            </View>
+           
+            {showMenu && (
+              <SectionList keyExtractor={(item, index) => item + index }
+              sections={menuItemsToDisplay}
+              renderItem={renderItem}
+              renderSectionHeader={renderSectionHeader} />
+            )}
         </View>
     );
 };
@@ -128,7 +142,8 @@ export default MenuItems;
 
 const menuStyles = StyleSheet.create({
     container: {
-        flex: 1
+        flex: 1,
+        backgroundColor: 'black',
     },
     innerContainer: {
         paddingHorizontal: 40,
@@ -155,5 +170,31 @@ const menuStyles = StyleSheet.create({
         textAlign: 'center',
         fontSize: 25,
         fontWeight: 200
+    },
+    infoSection: {
+      color: '#EDEFEE',
+      textAlign: "center",
+      fontSize: 24,
+      padding: 30
+    },
+    buttonContainer: {
+      justifyContent: 'center',
+      alignItems: 'center'
+    },
+    button: {
+      fontSize: 22,
+      padding: 10,
+      marginVertical: 8,
+      margin: 40,
+      backgroundColor: '#EDEFEE',
+      borderColor: '#EDEFEE',
+      borderWidth: 2,
+      borderRadius: 12,
+    },
+    buttonText: {
+      fontSize: 32,
+      color: '#333333',
+      textAlign: 'center'
     }
+    
 })
