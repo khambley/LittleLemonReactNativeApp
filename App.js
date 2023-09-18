@@ -19,8 +19,8 @@ export default function App() {
         <LittleLemonHeader />
         {/* <ViewBoxesWithColorAndText /> */}
         {/* <WelcomeScreen /> */}
-        <MenuItems />
-        {/* <LoginScreen /> */}
+        {/* <MenuItems /> */}
+        <LoginScreen />
         {/* <MyTextComponent /> */}
       </View>
       <View style={styles.footer}>
@@ -33,7 +33,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'blackß',
+    backgroundColor: 'black',
   },
   footer: { 
     backgroundColor: 'black' 
