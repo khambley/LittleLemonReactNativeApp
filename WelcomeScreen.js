@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, Text, ScrollView, TextInput, KeyboardAvoidingView, Platform, Alert } from 'react-native';
+import { StyleSheet, View, Text, ScrollView, TextInput, KeyboardAvoidingView, Platform, Alert, Image} from 'react-native';
 
 export default function WelcomeScreen() {
 
@@ -10,13 +10,47 @@ export default function WelcomeScreen() {
     return (
      <KeyboardAvoidingView style={welcomeStyles.container} behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
         <ScrollView indicatorStyle={"white"} keyboardDismissMode="on-drag">
+        <View style={welcomeStyles.imageContainer}>
+        <Image style={welcomeStyles.logo} source={require('./img/LittleLemonHeader.png')} />   
+        </View>
+        
         <Text style={welcomeStyles.headerText}>
                 Welcome to Little Lemon
         </Text>
 
         <Text style={welcomeStyles.bodyText}>
             Little Lemon is a charming neighborhood bistro that serves simple food and classic cocktails in a lively but casual environment. We would love to hear more about your experience with us!</Text>
-
+            <View style={welcomeStyles.imageContainer}>
+            <Image
+                style={welcomeStyles.image}
+                source={require('./img/Picture1.png')}
+                resizeMode="cover"
+                accessible={true}
+                accessibilityLabel={'Table with menu and napkin'}
+            />
+            <Image
+                style={welcomeStyles.image}
+                source={require('./img/Picture2.png')}
+                resizeMode="cover"
+                accessible={true}
+                accessibilityLabel={'Pan with seared salmon'}
+            />
+            <Image
+                style={welcomeStyles.image}
+                source={require('./img/Picture3.png')}
+                resizeMode="cover"
+                accessible={true}
+                accessibilityLabel={'Slicing a lemon'}
+            />
+            <Image
+                style={welcomeStyles.image}
+                source={require('./img/Picture4.png')}
+                resizeMode="cover"
+                accessible={true}
+                accessibilityLabel={'Steamed mussels and lemon wedge in a bowl'}
+            />
+            </View>
+            
         <TextInput 
             style={welcomeStyles.inputBox}
             value={firstName}
@@ -45,7 +79,23 @@ export default function WelcomeScreen() {
   }
   const welcomeStyles = StyleSheet.create({
     container: { 
-        flex: 1 
+        flex: 1,      
+    },
+    imageContainer:{
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginTop: 20
+    },
+    logo: {
+        height: 100,
+        width: 300,
+        resizeMode: 'contain'
+     },
+    image: {
+        width: 350,
+        height: 250,
+        borderRadius: 10,
+        marginBottom: 10
     },
     headerText: { 
         padding: 35, 
