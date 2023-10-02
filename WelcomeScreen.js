@@ -1,14 +1,20 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, Text, ScrollView, TextInput, KeyboardAvoidingView, Platform, Alert, Image} from 'react-native';
+import { StyleSheet, View, Text, ScrollView, TextInput, KeyboardAvoidingView, Platform, Alert, Image, useColorScheme} from 'react-native';
 
 export default function WelcomeScreen() {
-
+    const colorScheme = useColorScheme(); // can return light, dark, or null
     const[firstName, onChangeFirstName] = useState('');
     const[lastName, onChangeLastName] = useState('');
     const[message, onChangeMessage] = useState('');
 
     return (
-     <KeyboardAvoidingView style={welcomeStyles.container} behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
+     <KeyboardAvoidingView 
+     style={[welcomeStyles.container, 
+        colorScheme === 'light'
+        ? {backgroundColor: '#fff'} 
+        : {backgroundColor: '#333333'}
+      ]} 
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
         <ScrollView indicatorStyle={"white"} keyboardDismissMode="on-drag">
         <View style={welcomeStyles.imageContainer}>
         <Image style={welcomeStyles.logo} source={require('./img/LittleLemonHeader.png')} />   
@@ -17,6 +23,7 @@ export default function WelcomeScreen() {
         <Text style={welcomeStyles.headerText}>
                 Welcome to Little Lemon
         </Text>
+        <Text style={welcomeStyles.bodyText}>Color Scheme: {colorScheme}</Text>
 
         <Text style={welcomeStyles.bodyText}>
             Little Lemon is a charming neighborhood bistro that serves simple food and classic cocktails in a lively but casual environment. We would love to hear more about your experience with us!</Text>
@@ -99,7 +106,7 @@ export default function WelcomeScreen() {
     },
     headerText: { 
         padding: 35, 
-        color: 'white', 
+        color: 'black', 
         fontSize: 30,
         textAlign: 'center' 
     },
@@ -107,7 +114,7 @@ export default function WelcomeScreen() {
         fontSize: 26,
         padding: 20,
         marginVertical: 8,
-        color: '#EDEFEE',
+        color: 'black',
         textAlign: 'center',
     },
     inputBox: {
