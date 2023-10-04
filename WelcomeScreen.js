@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, Text, ScrollView, TextInput, KeyboardAvoidingView, Platform, Alert, Image, useColorScheme} from 'react-native';
+import { StyleSheet, View, Text, ScrollView, TextInput, KeyboardAvoidingView, Platform, Alert, Image, useColorScheme, useWindowDimensions} from 'react-native';
 
 export default function WelcomeScreen() {
+    const {width, height, fontScale} = useWindowDimensions();
     const colorScheme = useColorScheme(); // can return light, dark, or null
     const[firstName, onChangeFirstName] = useState('');
     const[lastName, onChangeLastName] = useState('');
@@ -24,7 +25,10 @@ export default function WelcomeScreen() {
                 Welcome to Little Lemon
         </Text>
         <Text style={welcomeStyles.bodyText}>Color Scheme: {colorScheme}</Text>
-
+        <Text style={welcomeStyles.bodyText}>Window Dimensions</Text>
+        <Text style={welcomeStyles.bodyText}>Height: {height}</Text>
+        <Text style={welcomeStyles.bodyText}>Width: {width}</Text>
+        <Text style={welcomeStyles.bodyText}>FontScale: {fontScale}</Text>
         <Text style={welcomeStyles.bodyText}>
             Little Lemon is a charming neighborhood bistro that serves simple food and classic cocktails in a lively but casual environment. We would love to hear more about your experience with us!</Text>
             <View style={welcomeStyles.imageContainer}>
@@ -112,8 +116,8 @@ export default function WelcomeScreen() {
     },
     bodyText: {
         fontSize: 26,
-        padding: 20,
-        marginVertical: 8,
+        padding: 5,
+        marginVertical: 3,
         color: 'black',
         textAlign: 'center',
     },
